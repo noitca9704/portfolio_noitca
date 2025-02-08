@@ -1,0 +1,133 @@
+@charset "utf-8";
+
+.m-title {
+  font-size: 4.375rem;
+  margin-bottom: 3.75rem;
+  font-family: SUIT-Regular;
+}
+
+.m-container {
+  width: 90vw;
+  max-width: 87.5rem;
+  margin: 0 auto;
+  padding: 7.5rem 0;
+}
+
+.projects-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.project-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-section {
+  width: 100%;
+  overflow: hidden;
+  transition: transform 0.3s;
+  font-family: Pretendard-regular;
+}
+
+.project-image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.625rem;
+}
+
+.project-content {
+  padding: 1.25rem;
+  text-align: left;
+}
+
+.m-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.25rem;
+}
+
+.m-description {
+  font-size: clamp(0.74rem, 1.5vw , 1.2rem);
+  color: #555;
+  margin-bottom: 0.625rem;
+  line-height: 2rem;
+}
+
+.detail-button {
+  background: transparent;
+  color: #353535;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid #353535;
+  font-family: Pretendard-Regular;
+}
+
+.detail-button:hover {
+  background: #353535;
+  color: #Fff;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-text {
+  width: 30%;
+  position: fixed;
+  right: 15%;
+  top: 15%;
+  color: #fff;
+}
+
+@media (max-width: 939px) {
+  .m-container {
+    padding: 3.75rem 0;
+  }
+  .m-title {
+    text-align: center;
+  }
+  .project-section {
+    width: 100% !important;
+    overflow: visible !important;
+  }
+  .projects-wrapper {
+    width: 90%;
+  }
+  .detail-button {
+    margin-bottom: 1.875rem;
+  }
+  .m-description {
+    font-size: clamp(0.74rem, 1.8vw , 1.2rem);
+  }
+}
+@media (max-width: 450px) {
+  .m-title{
+    font-size: 3.125rem;
+  }
+  .m-name{
+    font-size: 1.125rem;
+  }
+}
+
