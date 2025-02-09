@@ -1,26 +1,30 @@
 @charset "utf-8";
-*{
+
+* {
   padding: 0;
   margin: 0;
   list-style: none;
   box-sizing: border-box;
 }
+
 @font-face {
   font-family: 'SUIT-Regular';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Pretendard-Regular';
   src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
+
 .h_list {
   font-family: 'SUIT-Regular';
   position: relative;
-  font-size: clamp(1.25rem, 2vw , 1.75rem);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
   cursor: pointer;
   transition: color 0.3s ease-in-out;
 }
@@ -40,22 +44,41 @@
   transform: translateX(-50%);
   transition: width 0.3s ease-in-out;
 }
-.side-menu{
+
+.side-menu {
   position: fixed;
-  right: 2%;
+  right: 3%;
   bottom: 4%;
   display: grid;
   gap: 20px;
+  z-index: 10;
 }
-@media (max-width: 650px) {
-  .h_list{
+.side-menu li{
+  width: 60px;
+  height: 60px;
+  border-radius: 36px;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s;
+  cursor: pointer;
+}
+.side-menu li:hover{
+  background-color: rgba(255, 255, 255, 1);
+}
+
+@media (max-width: 939px) {
+  .side-menu li{
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  .h_list {
     display: none;
   }
 }
-@media (max-width: 450px) {
-  .side-menu{
-    right: 4%;
+
+@media (max-width: 650px) {
+  .h_list {
+    display: none;
   }
 }
-
-

@@ -40,6 +40,7 @@
 .project-content {
   padding: 1.25rem;
   text-align: left;
+  position: relative;
 }
 
 .m-name {
@@ -49,10 +50,10 @@
 }
 
 .m-description {
-  font-size: clamp(0.74rem, 1.5vw , 1.2rem);
+  font-size: clamp(1.2rem, 1.5vw, 1.2rem);
   color: #555;
   margin-bottom: 0.625rem;
-  line-height: 2rem;
+  line-height: clamp(1.5rem, 1.5vw ,2rem);
 }
 
 .detail-button {
@@ -63,7 +64,7 @@
   border-radius: 0.3125rem;
   cursor: pointer;
   transition: 0.3s;
-  border: 1px solid #353535;
+  border: 2px solid #353535;
   font-family: Pretendard-Regular;
 }
 
@@ -101,33 +102,62 @@
   transition: top 0.3s ease-in-out;
 }
 
+.button-section{
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+}
+
 @media (max-width: 939px) {
   .m-container {
     padding: 3.75rem 0;
   }
+
   .m-title {
     text-align: center;
   }
+
   .project-section {
     width: 100% !important;
     overflow: visible !important;
   }
+
   .projects-wrapper {
     width: 90%;
   }
+
   .detail-button {
     margin-bottom: 1.875rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
   }
+
   .m-description {
-    font-size: clamp(0.74rem, 1.8vw , 1.2rem);
-  }
-}
-@media (max-width: 450px) {
-  .m-title{
-    font-size: 3.125rem;
-  }
-  .m-name{
-    font-size: 1.125rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
   }
 }
 
+@media (max-width: 450px) {
+  .m-title {
+    font-size: 3.125rem;
+  }
+
+  .m-name {
+    font-size: 1.125rem;
+  }
+
+  .m-description {
+    font-size: clamp(0.7rem, 1.5vw, 1.2rem);
+  }
+}
+@media (max-width: 534px){
+  .button-section{
+    display: grid;
+    gap: 1rem;
+  }
+  .detail-button{
+    margin-bottom: 0;
+  }
+  .detail-button:last-child{
+    margin-bottom: 1.875rem;   
+  }
+}

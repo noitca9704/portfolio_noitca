@@ -41,20 +41,27 @@ function App() {
   const fadeOut = useTransform(scrollY, [0, 500], [1, 0]);
   const isMobile = useMediaQuery({ maxWidth: 650 });
   const sections = ["home", "about_me", "project", "contact"];
+  const [activeSection, setActiveSection] = useState("");
 
-  const [activeSection, setActiveSection] = useState(""); // 현재 활성화된 섹션 저장
+  const sendEmail = () => {
+    window.location.href = "mailto:yy002756@naver.com";
+  };
+
+  const gitDirect = () => {
+    window.open("https://github.com/noitca9704", "_blank"); // 링크를 매개변수로 받아서 열기
+  };
 
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.3, // 50% 이상 보일 때 감지
+      threshold: 0.3, // 섹션의 30% 이상 보일 때 감지
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveSection(entry.target.id); // 현재 보이는 섹션의 ID 저장
+          setActiveSection(entry.target.id); 
         }
       });
     };
@@ -113,7 +120,7 @@ function App() {
 
   return (
     <motion.div
-      initial={{ height: "100vh", overflow: "hidden" }}
+      initial={{ height: "100vh", overflow: "hidden" }} // start 애니메이션중 스크롤을 숨기기 위함
       animate={{ height: "none", overflow: "visible" }}
       transition={{ delay: 4 }}
     >
@@ -163,7 +170,7 @@ function App() {
       <header
         style={{
           position: "fixed",
-          width:"100%",
+          width: "100%",
           padding: "0 5%",
           display: "flex",
           justifyContent: "space-between",
@@ -181,7 +188,7 @@ function App() {
       >
         <motion.h1
           className="h_logo"
-          style={{ fontFamily: "SUIT-Regular", fontSize: "clamp(1.25rem, 2vw ,2rem)"}}
+          style={{ fontFamily: "SUIT-Regular", fontSize: "clamp(1.25rem, 2vw ,2rem)" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 3 }}
@@ -200,13 +207,13 @@ function App() {
         >
           {sections.map((item, index) => (
             <li
-            key={index}
-            className={`h_list ${activeSection === item ? "active" : ""}`} // 현재 활성화된 섹션이면 클래스 추가
-          >
-            <Link to={item} smooth={true} duration={500}>
-              {item.charAt(0).toUpperCase() + item.slice(1).replace("_", " ")}
-            </Link>
-          </li>
+              key={index}
+              className={`h_list ${activeSection === item ? "active" : ""}`} // 현재 활성화된 섹션이면 클래스 추가
+            >
+              <Link to={item} smooth={true} duration={500}>
+                {item.charAt(0).toUpperCase() + item.slice(1).replace("_", " ")}
+              </Link>
+            </li>
           ))}
         </motion.ul>
       </header>
@@ -217,8 +224,7 @@ function App() {
           top: 0,
           left: 0,
           width: "100%",
-          height: "100vh",
-          overflow: "hidden"
+          height: "100vh"
         }}
       >
         <motion.div
@@ -227,7 +233,7 @@ function App() {
           <Home />
         </motion.div>
       </motion.div>
-      <div id="home" style={{ height:"100vh" }}></div>
+      <div id="home" style={{ height: "100vh" }}></div> {/* absolute로 띄워져있는 home 컴포넌트의 섹션을 감지하기 위해  */}
       <motion.div id="about_me">
         <About_me />
       </motion.div>
@@ -239,42 +245,12 @@ function App() {
         initial={{ opacity: "0" }}
         animate={{ opacity: "1" }}
         transition={{ delay: 4 }}
-        >
-        <li
-          style={{
-            width: "40px",
-            height: "40px",
-            borderRadius: "36px",
-            backgroundColor: "#fff",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }}>
-          <Smartphone size={25} color="black" />
+      >
+        <li onClick={sendEmail}>
+          <Mail size={35} color="black" />
         </li>
-        <li
-          style={{
-            width: "40px",
-            height: "40px",
-            borderRadius: "36px",
-            backgroundColor: "#fff",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }}>
-          <Mail size={25} color="black" />
-        </li>
-        <li
-          style={{
-            width: "40px",
-            height: "40px",
-            borderRadius: "36px",
-            backgroundColor: "#fff",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }}>
-          <FaGithub size={25} color="black" />
+        <li onClick={gitDirect}>
+          <FaGithub size={35} color="black" />
         </li>
       </motion.ul>
     </motion.div>

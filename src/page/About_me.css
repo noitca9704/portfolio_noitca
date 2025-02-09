@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 .a-title {
   font-size: 4.375rem;
   margin-bottom: 3.125rem;
@@ -68,7 +69,7 @@
 }
 
 .a-description {
-  font-size: clamp(0.875rem, 1.6vw, 1.125rem);
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
   letter-spacing: 0.0625rem;
   line-height: 2;
   font-family: Pretendard-Regular;
@@ -125,6 +126,7 @@
     transform: rotateY(90deg);
     opacity: 0;
   }
+
   to {
     transform: rotateY(0);
     opacity: 1;
@@ -136,6 +138,7 @@
     transform: rotateY(0);
     opacity: 1;
   }
+
   to {
     transform: rotateY(90deg);
     opacity: 0;
@@ -155,59 +158,74 @@
 }
 
 @media (max-width: 939px) {
-  .a-title{
+  .a-title {
     text-align: center;
   }
-  .a-profile-section{
+
+  .a-profile-section {
     display: grid;
     gap: 1.5rem;
     padding: 1.5rem;
   }
-  .a-profile-image{
+
+  .a-profile-image {
     margin: 0 auto;
   }
+
   .a_button {
     bottom: 2%;
   }
+
   .card-section {
     display: grid;
   }
+
   .card {
     width: 90vw !important;
   }
+
   .icontext {
     font-size: 0.8756rem;
   }
+
   .skills-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
+
   .studying-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
+
   .a-description {
     letter-spacing: 0;
   }
 }
-@media (max-width: 450px){
+
+@media (max-width: 450px) {
   .skills-list {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .studying-list {
     grid-template-columns: repeat(2, 1fr);
   }
-  .a-title{
+
+  .a-title {
     font-size: 3.125rem;
   }
+
   .a-description {
     font-size: clamp(0.625rem, 1.6vw, 0.875rem);
     margin-bottom: 0.5rem;
   }
+
   .a-name {
     font-size: 1.125rem;
   }
-  .card-title{
+
+  .card-title {
     font-size: 1.125rem;
   }
 }

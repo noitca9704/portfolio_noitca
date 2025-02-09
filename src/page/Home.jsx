@@ -2,8 +2,7 @@ import React from "react";
 import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
 const Home = () => {
-  const isMobile1 = useMediaQuery({ maxWidth: 450 });
-  const isMobile2 = useMediaQuery({ maxWidth: 725});
+  const isMobile = useMediaQuery({ maxWidth: 450 });
   return (
     <div
       style={{
@@ -52,7 +51,7 @@ const Home = () => {
           transition={{ duration: 1, delay: 4 }}
         >
           <span style={{
-            display: isMobile1 ? "inline" : "block"
+            display: isMobile ? "inline" : "block"
           }}>어떤 색을 받아들이건 자연스럽고 조화로운 색을 보여주는 흰색 물감처럼 </span>
           끊임없이 배우려는 자세와 소통하는 자세로 더욱 많은 사용자에게
           보기 좋고 이용하기 좋은 웹 페이지를 만들겠습니다.
@@ -68,8 +67,8 @@ const Home = () => {
           textAlign: "center",
           pointerEvents: "none"
         }}
-        initial={{ fontSize: "clamp(0.8rem, 4vw, 4.8rem)", left: "50%", top: "50%", x: "-50%", y: "-50%" }}
-        animate={{ fontSize: "clamp(0.7rem, 2vw, 2.4rem)", left: "50%", top: "90%", x: "-50%", y: "0%" }}
+        initial={{ fontSize: "clamp(1.2rem, 4vw, 4.8rem)", left: "50%", top: "50%", x: "-50%", y: "-50%" }}
+        animate={{ fontSize: "clamp(1rem, 2vw, 2.4rem)", left: "50%", top: "90%", x: "-50%", y: "0%" }}
         transition={{ duration: 1, delay: 2 }}
       >
         Web Portfolio by S.G.K
