@@ -234,17 +234,12 @@ function App() {
 
       <Myproject />
       <Contact />
-      <motion.ul 
+      <motion.ul
+        className="side-menu"
         initial={{ opacity: "0" }}
         animate={{ opacity: "1" }}
         transition={{ delay: 4 }}
-        style={{
-        position: "fixed",
-        right: "2%",
-        bottom: "4%",
-        display: "grid",
-        gap: "20px"
-      }}>
+        >
         <li
           style={{
             width: "40px",

@@ -40,9 +40,21 @@
   transform: translateX(-50%);
   transition: width 0.3s ease-in-out;
 }
+.side-menu{
+  position: fixed;
+  right: 2%;
+  bottom: 4%;
+  display: grid;
+  gap: 20px;
+}
 @media (max-width: 650px) {
   .h_list{
     display: none;
+  }
+}
+@media (max-width: 450px) {
+  .side-menu{
+    right: 4%;
   }
 }
 

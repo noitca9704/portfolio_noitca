@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import "aos/dist/aos.css";
 import "./Myproject.css";
 import "swiper/css";
@@ -29,7 +29,6 @@ const projects = [
 
 const Myproject = () => {
   const [openModals, setOpenModals] = useState(projects.map(() => false));
-  const [positions, setPositions] = useState(projects.map(() => 150));
   const [fadeStatus, setFadeStatus] = useState(projects.map(() => false));
 
   useEffect(() => {
@@ -64,24 +63,7 @@ const Myproject = () => {
       updatedModals[index] = false;
       setOpenModals(updatedModals);
       document.body.style.overflow = "auto";
-      const updatedPositions = [...positions];
-      updatedPositions[index] = 150;
-      setPositions(updatedPositions);
     }, 300);
-  };
-
-  const handleWheel = (index, e) => {
-    const updatedPositions = [...positions];
-    if (e.deltaY > 0) {
-      updatedPositions[index] = Math.max(updatedPositions[index] - 150, -300);
-    } else {
-      updatedPositions[index] = Math.min(updatedPositions[index] + 150, 150);
-    }
-    setPositions(updatedPositions);
-  };
-
-  const handleClick = () => {
-    window.open('www.noitca.co.kr', '_blank');
   };
 
   return (
@@ -102,10 +84,9 @@ const Myproject = () => {
         {projects.map((project, index) => (
           <SwiperSlide key={index} className="project-slide">
             <div data-aos="fade-right" className="project-section">
-
               <img src={project.image} alt="Project" className="project-image" />
               <div data-aos="fade-up" className="project-content">
-              <h2 className="m-name">{project.title}</h2>
+                <h2 className="m-name">{project.title}</h2>
                 <p className="m-description"><strong>타입 :</strong> 반응형 Web</p>
                 <p className="m-description"><strong>작업기간 :</strong> {project.period} <strong>기여도 :</strong> {project.contribution}</p>
                 <p className="m-description"><strong>구현범위 :</strong> {project.scope}</p>
@@ -122,26 +103,12 @@ const Myproject = () => {
             key={index}
             className={`modal-overlay ${fadeStatus[index] ? "show" : ""}`}
             onClick={() => closeModal(index)}
-            onWheel={(e) => handleWheel(index, e)}
           >
             <img
-              style={{
-                width: "700px",
-                position: "absolute",
-                left: "15%",
-                top: `${positions[index]}px`,
-                transition: "top 0.3s ease-in-out",
-              }}
+              className="modal-image"
               src={project.detailImage}
-              alt=""
+              alt="project.detailImage"
             />
-            <div className="modal-text">
-              <h2>{project.title}</h2>
-              <p><strong>타입 :</strong> 반응형 Web</p>
-              <p><strong>작업기간 :</strong> {project.period} <strong>기여도 :</strong> {project.contribution}</p>
-              <p><strong>구현범위 :</strong> {project.scope}</p>
-            </div>
-            <button onClick={handleClick}>페이지 바로가기</button>
           </div>
         )
       ))}
