@@ -19,7 +19,7 @@ const projects = [
     image: "project1.jpg",
     detailImage: "/project1_pull.jpg",
     devg: "HTML·CSS·JS의 기초를 다지기 위해 자주 사용하는 화장품 회사의 기존 분리형 웹페이지를 풀 반응형 웹으로 구축하고 리디자인",
-    imp: "상품 Swiper를 사용자에게 넘기는 부분이라고 인식시키는 UI와 이미지의 로딩 속도 해결이 필요하며 회원정보, 검색, 장바구니 기능 및 커뮤니티 서브페이지 구현이 필요 (DB 학습 요구)",
+    imp: "상품 Swiper를 사용자에게 넘기는 부분이라고 인식시키는 UI와 이미지의 로딩 속도 해결이 필요하고 Product의 상세 메뉴를 클릭하면 그 상품 리스트가 나오게끔 구현이 필요하며 회원정보, 검색, 장바구니 기능 및 커뮤니티 서브페이지 구현이 필요 (DB 학습 요구)",
     url1: "https://noitcaproject1.netlify.app",
     url2: "https://github.com/noitca9704/grafen_rd"
   },
