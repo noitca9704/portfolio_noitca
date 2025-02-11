@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
-import AOS from "aos";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-import "aos/dist/aos.css";
+import React, { useEffect, useState } from "react"; // React의 useEffect와 useState Hook을 가져옴
+import AOS from "aos"; // AOS(Aniamte on Scroll) 라이브러리를 가져옴
+import { Swiper, SwiperSlide } from "swiper/react"; // Swiper 슬라이드 컴포넌트를 가져옴
+import { Pagination } from "swiper/modules"; // Swiper의 페이지네이션 모듈을 가져옴
+import "aos/dist/aos.css"; // AOS 애니메이션 스타일 파일 가져옴
 import "./Myproject.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+// 프로젝트 정보를 담은 배열
 const projects = [
   {
     type: "풀 반응형",
@@ -38,46 +39,49 @@ const projects = [
 ];
 
 const Myproject = () => {
-  const [openModals, setOpenModals] = useState(projects.map(() => false));
-  const [fadeStatus, setFadeStatus] = useState(projects.map(() => false));
+  const [openModals, setOpenModals] = useState(projects.map(() => false)); // 모달 상태를 관리하는 배열 state
+  const [fadeStatus, setFadeStatus] = useState(projects.map(() => false)); // 페이드 애니메이션 상태를 관리하는 배열 state
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: false,
-      mirror: true,
+    AOS.init({ // AOS 라이브러리를 초기화
+      duration: 1000, // 애니메이션 지속 시간 (1초)
+      easing: "ease-in-out", // 애니메이션 속도 조정
+      once: false, // 애니메이션을 한 번만 실행하지 않음
+      mirror: true, // 스크롤을 반대로 했을 때도 애니메이션 실행
     });
   }, []);
 
+  // 모달 열기 함수
   const openModal = (index) => {
-    const updatedModals = [...openModals];
-    updatedModals[index] = true;
-    setOpenModals(updatedModals);
-    document.body.style.overflow = "hidden"; // 모달이 열리면 모달 밑의 요소들에 scroll을 방지
+    const updatedModals = [...openModals]; // 현재 모달 상태 복사
+    updatedModals[index] = true; // 해당 인덱스의 모달을 열도록 변경
+    setOpenModals(updatedModals); // 상태 업데이트
+    document.body.style.overflow = "hidden"; // 모달이 열리면 페이지 스크롤 방지
 
     setTimeout(() => {
-      const updatedFadeStatus = [...fadeStatus];
-      updatedFadeStatus[index] = true;
-      setFadeStatus(updatedFadeStatus);
+      const updatedFadeStatus = [...fadeStatus]; // 현재 페이드 상태 복사
+      updatedFadeStatus[index] = true; // 해당 인덱스의 페이드 애니메이션 활성화
+      setFadeStatus(updatedFadeStatus); // 상태 업데이트
     }, 50);
   };
 
+  // 모달 닫기 함수
   const closeModal = (index) => {
-    const updatedFadeStatus = [...fadeStatus];
-    updatedFadeStatus[index] = false;
-    setFadeStatus(updatedFadeStatus);
+    const updatedFadeStatus = [...fadeStatus]; // 현재 페이드 상태 복사
+    updatedFadeStatus[index] = false; // 해당 인덱스의 페이드 애니메이션 비활성화
+    setFadeStatus(updatedFadeStatus); // 상태 업데이트
 
     setTimeout(() => {
-      const updatedModals = [...openModals];
-      updatedModals[index] = false;
-      setOpenModals(updatedModals);
-      document.body.style.overflow = "auto"; // 모달이 닫히면 다시 scroll 되게
+      const updatedModals = [...openModals]; // 현재 모달 상태 복사
+      updatedModals[index] = false; // 해당 인덱스의 모달을 닫도록 변경
+      setOpenModals(updatedModals); // 상태 업데이트
+      document.body.style.overflow = "auto"; // 모달이 닫히면 페이지 스크롤 가능하도록 변경
     }, 300);
   };
 
+  // 새 창에서 링크 열기 함수
   const handleClick1 = (url) => {
-    window.open(url, "_blank"); // 링크를 매개변수로 받아서 열기
+    window.open(url, "_blank"); // 매개변수로 받은 URL을 새 탭에서 열기
   };
 
   return (

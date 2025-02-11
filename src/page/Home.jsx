@@ -31,7 +31,7 @@ const Home = () => {
       >
         <motion.h1
           style={{
-            fontSize: "clamp(1rem, 4.8vw, 4rem)"
+            fontSize: "clamp(0.9rem, 4.7vw, 4rem)"
           }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
