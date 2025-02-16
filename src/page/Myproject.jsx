@@ -19,7 +19,7 @@ const projects = [
     image: "project1.jpg",
     detailImage: "/project1_pull.jpg",
     devg: "HTML·CSS·JS의 기초를 다지기 위해 자주 사용하는 화장품 회사의 기존 분리형 웹페이지를 풀 반응형 웹으로 구축하고 리디자인",
-    imp: "상품 Swiper를 사용자에게 넘기는 부분이라고 인식시키는 UI와 이미지의 로딩 속도 해결이 필요하고 Product의 상세 메뉴를 클릭하면 그 상품 리스트가 나오게끔 구현이 필요하며 회원정보, 검색, 장바구니 기능 및 커뮤니티 서브페이지 구현이 필요 (DB 학습 요구)",
+    imp: "상품 Swiper를 사용자에게 넘기는 부분이라고 인식시키는 UI와 이미지의 로딩 속도 해결이 필요하고 Product의 상세 메뉴를 클릭하면 그 상품 리스트가 나오게끔 구현이 필요하며 모바일 화면에서의 디자인이 아쉬움",
     url1: "https://noitcaproject1.netlify.app",
     url2: "https://github.com/noitca9704/grafen_rd"
   },
@@ -32,7 +32,7 @@ const projects = [
     image: "project2.JPG",
     detailImage: "/project2_pull.jpg",
     devg: "포트폴리오를 React의 다양한 컴포넌트와 클래스 사용 및 라이브러리나 Hook에 대한 이해를 위해 React기반으로 풀 반응형 웹 페이지 구축",
-    imp: "웹이 반응했을때 글의 가독성을 높이고(Size Weight 조절 필요) 디자인적으로 심심한 부분에 대한 파훼가 필요",
+    imp: "웹이 반응했을때 글의 가독성을 더욱 높여야 하며 ",
     url1: "https://noitca.netlify.app",
     url2: "https://github.com/noitca9704/portfolio_noitca"
   }
@@ -78,8 +78,7 @@ const Myproject = () => {
       document.body.style.overflow = "auto"; // 모달이 닫히면 페이지 스크롤 가능하도록 변경
     }, 300);
   };
-
-  // 새 창에서 링크 열기 함수
+  
   const handleClick1 = (url) => {
     window.open(url, "_blank"); // 매개변수로 받은 URL을 새 탭에서 열기
   };
